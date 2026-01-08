@@ -42,6 +42,8 @@ key-mapping.preset = 'qwerty'
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
+# BORDER CHANGES 
+
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
 # - Constant:     gaps.outer.top = 8
@@ -50,12 +52,13 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 5
-inner.vertical =   5
-outer.left =       0
-outer.bottom =     0
-outer.top =        0
-outer.right =      0
+inner.horizontal = 20
+inner.vertical =   9
+outer.left =       20
+outer.bottom =     50
+outer.top =        20
+outer.right =      20
+
 
 
 # 'main' binding mode declaration
@@ -119,7 +122,6 @@ alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-backtick = 'move-node-to-workspace S'
 
-
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
@@ -139,7 +141,7 @@ alt-m = 'mode move'
 
 alt-shift-r = 'reload-config'
 
-alt-s = 'layout v_accordion' # 'layout stacking' in i3
+alt-q = 'layout v_accordion' # 'layout stacking' in i3
 alt-w = 'layout h_accordion' # 'layout tabbed' in i3
 alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
 
@@ -201,7 +203,13 @@ esc = 'mode main'
 [workspace-to-monitor-force-assignment]
 1 = 'main'
 S = 'secondary'
+7 = 'secondary'
+8 = 'secondary'
 # App specific stuff
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
+run = ['layout floating', 'move-node-to-workspace 2']
+
+[[on-window-detected]]
+if.app-id = 'com.github.GitHubClient'
 run = ['layout floating']
