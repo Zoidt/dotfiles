@@ -40,7 +40,8 @@ key-mapping.preset = 'qwerty'
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
-on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+#on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focus-changed = ['move-mouse window-lazy-center']
 
 # BORDER CHANGES 
 
@@ -52,12 +53,12 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 20
-inner.vertical =   9
-outer.left =       20
-outer.bottom =     50
-outer.top =        20
-outer.right =      20
+inner.horizontal = [{ monitor.main = 5 }, { monitor.secondary = 5 }, 5]
+inner.vertical =   [{ monitor.main = 5 }, { monitor.secondary = 5 }, 5]
+outer.left =       [{ monitor.main = 5 }, { monitor.secondary = 5 }, 0]
+outer.bottom =     [{ monitor.main = 40 }, { monitor.secondary = 10 }, 40]
+outer.top =        [{ monitor.main = 0 }, { monitor.secondary = 5 }, 0]
+outer.right =      [{ monitor.main = 5 }, { monitor.secondary = 0 }, 0]
 
 
 
@@ -132,6 +133,7 @@ alt-shift-s = 'mode service'
 
 # i3-like goodies
 alt-enter = 'exec-and-forget open -a /Applications/ghostty.app | move-node-to-workspace --create-if-not-exists focused'
+alt-shift-enter = 'exec-and-forget open -a "Github Desktop" | move-node-to-workspace --create-if-not-exists focused'
 #cmd-shift-enter = 'exec-and-forget open -a /Applications/Emacs.app'
 
 alt-f = 'fullscreen'
@@ -205,10 +207,11 @@ esc = 'mode main'
 S = 'secondary'
 7 = 'secondary'
 8 = 'secondary'
+9 = 'secondary'
 # App specific stuff
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = ['layout floating', 'move-node-to-workspace 2']
+run = ['layout floating', ]
 
 [[on-window-detected]]
 if.app-id = 'com.github.GitHubClient'
