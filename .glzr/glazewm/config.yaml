@@ -236,10 +236,17 @@ keybindings:
     bindings: ["alt+shift+j", "alt+shift+down"]
 
   # Resize focused window by a percentage or pixel amount.
+  # Width:  alt+u / alt+p, or alt+ctrl+h / alt+ctrl+l (matches tmux C-M-h/l).
+  # Height: alt+ctrl+u / alt+ctrl+p, or alt+ctrl+k / alt+ctrl+j.
+  # k = taller, j = shorter, matching the resize binding mode above.
   - commands: ["resize --width -2%"]
-    bindings: ["alt+u"]
+    bindings: ["alt+u", "alt+ctrl+h"]
   - commands: ["resize --width +2%"]
-    bindings: ["alt+p"]
+    bindings: ["alt+p", "alt+ctrl+l"]
+  - commands: ["resize --height +2%"]
+    bindings: ["alt+ctrl+k", "alt+ctrl+p"]
+  - commands: ["resize --height -2%"]
+    bindings: ["alt+ctrl+j", "alt+ctrl+u"]
 
   # As an alternative to the resize keybindings above, resize mode enables
   # resizing via arrow keys or HJKL. The binding mode is defined above with
